@@ -16,7 +16,7 @@ public:
         // Set size to N
         size = N;
     }
-    Matrix<T>(std::vector<std::vector<int>> nums) {
+    Matrix<T>(std::vector<std::vector<T>> nums) {
         // Set size to the number of rows/cols
         size = nums.size();
         // Allocate space for data
@@ -74,7 +74,7 @@ public:
 
     void set_value(std::size_t i, std::size_t j, T n) {
         // Make sure that the row and column index are in bounds
-        if(i >= size || j >= size) {
+        if(i >= (std::size_t)size || j >= (std::size_t)size) {
             throw std::out_of_range("Attempted to set matrix cell out of bounds");
         }
 
@@ -111,12 +111,11 @@ public:
     T sum_diagonal_minor() const {
         // Start sum at zero
         T sum = 0;
-        // Loop through all points where row index = col index
+        // Loop through all points from top right of matrix to bottom left
         for(int i = 0; i < size; i++) {
-            // Add the entry at the position to sum
-            sum += data[i*size + i];
+            // Add each entry to sum
+            sum += data[i*size + (size-1-i)];
         }
-        // Return the final sum
         return sum;
     }
 

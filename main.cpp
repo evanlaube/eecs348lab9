@@ -11,7 +11,10 @@ Matrix<T> readMatrix(std::ifstream &inputFile, int size) {
     std::string line;
 
     for(int i = 0; i < size; i++) {
+        // Get line, skipping blank lines
+        do {
         std::getline(inputFile, line);
+        } while(line == "\n"); 
         std::stringstream ss(line);
         T number;
         int n = 0;
@@ -76,7 +79,7 @@ void processMatrices(std::ifstream &inputFile, int size) {
         }
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     // Prompt the user for an input file
     std::cout << "Enter name of file to process: ";
     // Create a string to store the filename
@@ -99,11 +102,6 @@ int main(int argc, char *argv[]) {
 
         // Get next line after size
         std::getline(inputFile, line);
-
-        // Skip all blank lines that may have been inserted
-        while(line == "\n") {
-            std::getline(inputFile, line);
-        }
 
         if(datatype == 0) {
             processMatrices<int>(inputFile, size);

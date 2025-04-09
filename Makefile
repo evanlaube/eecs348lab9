@@ -16,5 +16,8 @@ $(TARGET): $(OBJECTS)
 $(OBJECT_DIR)/%.o: %.cpp | $(OBJECT_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJECT_DIR):
+	mkdir -p $(OBJECT_DIR)
+
 clean:
 	rm -rf $(OBJECT_DIR) $(TARGET)

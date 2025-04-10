@@ -143,37 +143,9 @@ public:
         }
     }
     void print_matrix() const {
-        // Get largest number of digits of number in matrix
-        // int maxDigits = 0;
-        // // Loop through each entry in the matrix
-        // for(int i = 0; i < size*size; i++) {
-        //     // Get the number at position i
-        //     int number = data[i];
-        //     // If the number is negative, make it positive
-        //     if(number < 0) {
-        //         number = -number;
-        //     }
-        //     // Start the number of digits at zero
-        //     int digits = 0;
-        //     // Calculate the number of digits in the number by repetitively diving by 10
-        //     if(number == 0) {
-        //         digits = 0;
-        //     } else {
-        //         while (number != 0) {
-        //             number /= 10;
-        //             digits++;
-        //         }
-        //     }
-
-        //     // Set maxDigits to the max of digits and itself
-        //     maxDigits = std::max(digits, maxDigits);
-        // }
-
         // Print each entry in the matrix
         for(int i = 0; i < size; i++) {
             for(int n = 0; n < size; n++) {
-                // Format to print each number the same width
-                //std::cout << std::setw(maxDigits) << std::setfill('0') << data[size*i + n] << " ";
                 std::cout << data[size*i + n] << " ";
             }
             std::cout << std::endl;
